@@ -23,7 +23,7 @@ app.get("/cars", async (req, res) => {
 
 // Middleware for handling routes that do not exist
 app.use((req, res, next) => {
-  res.status(404).json({ message: "Route does not exist" });
+  res.status(404).json({ msg: "Route does not exist" });
 });
 
 const startServer = async () => {
