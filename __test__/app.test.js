@@ -1,8 +1,15 @@
 // __tests__/app.test.js
 const request = require('supertest');
-const app = require('../app');
+const { app, connectDB } = require('../app');
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 describe('API Testing', () => {
+
+  beforeAll(async () => {
+    await connectDB(process.env.MONGO_URL); 
+  });
   
   it('should return Welcome to our API on GET /api', async () => {
     const res = await request(app).get('/api');
@@ -28,4 +35,9 @@ describe('API Testing', () => {
     expect(res.statusCode).toEqual(404);
     expect(res.body).toHaveProperty('msg', 'Route does not exist');
   });
+
+  afterAll(async () => {
+    await mongoose.connection.close(); 
+  });
+
 });
