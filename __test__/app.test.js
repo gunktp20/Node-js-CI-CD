@@ -1,6 +1,7 @@
 // __tests__/app.test.js
 const request = require('supertest');
 const { app, connectDB } = require('../app');
+const mongoose = require('mongoose')
 const dotenv = require("dotenv");
 
 dotenv.config();
