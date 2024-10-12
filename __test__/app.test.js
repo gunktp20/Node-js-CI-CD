@@ -6,10 +6,15 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+const PORT = 5001
+
 describe('API Testing', () => {
 
   beforeAll(async () => {
     await connectDB(process.env.MONGO_URL); 
+    server = app.listen(PORT, () => {
+      console.log(`server is running on port : ${PORT}`);
+    });
   });
   
   it('should return Welcome to our API on GET /api', async () => {
@@ -38,6 +43,9 @@ describe('API Testing', () => {
   });
 
   afterAll(async () => {
+    if (server) {
+      server.close();
+    }
     await mongoose.connection.close(); 
   });
 

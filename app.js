@@ -13,7 +13,7 @@ const MONGO_URL = process.env.MONGO_URL;
 app.use(cors());
 
 app.get("/api", (req, res) => {
-  res.status(200).json({ msg: "Welcome to our API2" });
+  res.status(200).json({ msg: "Welcome to our API" });
 });
 
 app.get("/api/cars", async (req, res) => {
