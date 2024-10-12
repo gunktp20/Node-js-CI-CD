@@ -21,6 +21,10 @@ app.get("/api/cars", async (req, res) => {
   res.status(200).json(cars);
 });
 
+app.get("/api/orders",(req,res)=>{
+    res.status(200).json({ orders:"node.js api ec2 ci/cd orders route"})
+})
+
 // Middleware for handling routes that do not exist
 app.use((req, res, next) => {
   res.status(404).json({ msg: "Route does not exist" });
