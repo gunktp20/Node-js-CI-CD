@@ -12,11 +12,11 @@ const MONGO_URL = process.env.MONGO_URL;
 
 app.use(cors());
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.status(200).json({ msg: "Welcome to our API" });
 });
 
-app.get("/cars", async (req, res) => {
+app.get("/api/cars", async (req, res) => {
   const cars = await Car.find();
   res.status(200).json(cars);
 });
