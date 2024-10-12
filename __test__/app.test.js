@@ -17,7 +17,7 @@ describe('API Testing', () => {
     });
   });
   
-  it('should return Welcome to our API on GET /api', async () => {
+  it('should return Welcome to our API GET /api', async () => {
     const res = await request(app).get('/api');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('msg', 'Welcome to our API');
