@@ -31,7 +31,6 @@ jobs:
         echo "${{ secrets.PROD_ENV_FILE }}" > .env
 
     - run: npm test
-
     - run: pm2 restart BackendAPI
     # - run: pm2 restart BackendAPI
     
